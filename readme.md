@@ -1,6 +1,6 @@
-# 🍰 Pâtisserie Showcase – Full Stack Project
+# 🍰 Pâtisserie Showcase (Full Stack Project)
 
-Bonjour à nouveau !
+Bonjour à nouveau ! (oui, j'écris en français aussi ahah)
 
 Ce projet est une **récapitulación des notions apprises pendant mes premiers mois en tant qu’apprenti développeur web Full Stack à Ada Tech School**.
 
@@ -10,7 +10,7 @@ Simple et délicieuse :
 Créer un site de pâtisserie qui affiche une variété de desserts avec leurs **descriptions et images**.
 
 
-## 🛠️ Technologies utilisées
+## Technologies utilisées
 
 ### Front-end
 
