@@ -14,9 +14,7 @@ app.get("/", (req, res) => {
   res.send("¡CORS está habilitado!");
 });
 
-// ============================================
-// ROUTE GET — OBTENIR TOUTES LES PATISSERIES
-// ============================================
+// ROUTE GET POUR OBTENIR TOUTES LES PATISSERIES
 app.get('/patisseries', async (_, res) => {
   try {
     const sql = neon(process.env.DATABASE_URL);
@@ -27,9 +25,7 @@ app.get('/patisseries', async (_, res) => {
   }
 });
 
-// ============================================
-// ROUTE DELETE — EFFACER UN ÉLÉMENT
-// ============================================
+// ROUTE DELETE POUR EFFACER UN ÉLÉMENT
 app.delete('/patisseries/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -53,10 +49,10 @@ app.delete('/patisseries/:id', async (req, res) => {
       data: response[0]
     });
 
-    console.log(`✅ Patisserie "${response[0].nom_patisserie}" (id: ${id}) effacée`);
+    console.log(`Patisserie "${response[0].nom_patisserie}" (id: ${id}) effacée`);
 
   } catch (error) {
-    console.error('❌ Erreur lors de la suppression:', error);
+    console.error('Erreur lors de la suppression:', error);
     res.status(500).json({
       success: false,
       message: 'Erreur lors de la suppression',
@@ -65,9 +61,7 @@ app.delete('/patisseries/:id', async (req, res) => {
   }
 });
 
-// ============================================
-// ROUTE PUT — MODIFIER UN ÉLÉMENT
-// ============================================
+// ROUTE PUT POUR MODIFIER UN ÉLÉMENT
 app.put('/patisseries/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,10 +102,10 @@ app.put('/patisseries/:id', async (req, res) => {
       data: updated[0]
     });
 
-    console.log(`✅ Patisserie "${updated[0].nom_patisserie}" (id: ${id}) mise à jour`);
+    console.log(`Patisserie "${updated[0].nom_patisserie}" (id: ${id}) mise à jour`);
 
   } catch (error) {
-    console.error('❌ Erreur lors de la mise à jour:', error);
+    console.error('Erreur lors de la mise à jour:', error);
     res.status(500).json({
       success: false,
       message: 'Erreur lors de la mise à jour',
@@ -120,9 +114,7 @@ app.put('/patisseries/:id', async (req, res) => {
   }
 });
 
-// ============================================
-// ROUTE POST — AJOUTER UNE PATISSERIE
-// ============================================
+// ROUTE POST POUR AJOUTER UNE PATISSERIE
 app.post('/patisseries', async (req, res) => {
   try {
     const { nom_patisserie, categorie, img, origine, description } = req.body;
@@ -149,21 +141,19 @@ app.post('/patisseries', async (req, res) => {
       data: result[0]
     });
 
-    console.log(`✅ Nouvelle pâtisserie "${result[0].nom_patisserie}" (id: ${result[0].id}) ajoutée`);
+    console.log(`Nouvelle pâtisserie "${result[0].nom_patisserie}" (id: ${result[0].id}) ajoutée`);
 
   } catch (error) {
-    console.error('❌ Erreur lors de l\'ajout:', error);
+    console.error(`Erreur lors de l'ajout:`, error);
     res.status(500).json({
       success: false,
-      message: 'Erreur lors de l\'ajout',
+      message: `Erreur lors de l'ajout`,
       error: error.message
     });
   }
 });
 
-// ============================================
 // DÉMARRAGE DU SERVEUR
-// ============================================
 app.listen(PORT, () => {
-  console.log(`🚀 Serveur sur http://localhost:${PORT}`);
+  console.log(`Serveur sur http://localhost:${PORT}`);
 });

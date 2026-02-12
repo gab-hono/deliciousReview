@@ -390,7 +390,7 @@ body {
    ======================================== */
 .site-footer {
     background: var(--color-primary);
-    color: var(--color-light);
+    color: var(--color-accent);
     text-align: center;
     padding: var(--spacing-lg);
     margin-top: var(--spacing-xl);
